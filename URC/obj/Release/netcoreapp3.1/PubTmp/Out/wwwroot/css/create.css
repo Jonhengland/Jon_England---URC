@@ -1,0 +1,23 @@
+﻿#redbox-create {
+    background: #cc0000;
+    max-width: 62.5vw;
+}
+
+#white-banner-create {
+    height: 100vh;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background: white;
+}
+
+#form-margin-create {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#create-header {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}

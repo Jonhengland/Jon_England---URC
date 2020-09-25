@@ -1,0 +1,108 @@
+﻿/*
+Author: Peter Forsling
+Partner: Noah Jackson
+Date: 24 September 2020
+Course: CS 4540, University of Utah, School of Computing
+Copyright: CS 4540 and Peter Forsling/Noah Jackson - This work may not be copied for use in Academic Coursework.
+
+I, Peter Forsling/Noah Jackson, certify that I wrote this code from scratch and did not copy it in part or whole from
+another source. Any references used in the completion of the assignment are cited in my README file.
+
+File Contents
+This file contains the CSS elements for the Handmade Details page, as well as the CRUD details page
+*/
+
+
+/*************************************************************************** HANDMADE DETAILS *****************************************************************/
+/******************************** The "Skeleton" Of the top "island" of Details (Title, Author, Apply Button, etc.) *******************************************/
+#photo-author-title {
+    width: 1000px;
+    height: 300px;
+    background: white;
+    border-bottom: solid grey 20px;
+}
+
+#photo-col {
+    width: 300px;
+    background: white;
+}
+
+#photo-col img {
+    width: 200px;
+    margin-left: 40px;
+}
+
+#author-title-col {
+    text-align: left;
+    background: white;
+}
+
+#author-title {
+    width: 700px;
+    font-size: large;
+}
+
+#apply-button {
+    margin-left: 40px;
+    width: 200px;
+    height: 50px;
+    background: #cc0000;
+    font-size: x-large;
+    border: #cc0000 solid 1px;
+    color: white;
+}
+
+
+/******************************* The "Skeleton" of the bottom "island" of Details (Summary, Desired Skills, etc.) ************************************************/
+#description {
+    width: 800px;
+    margin-left: 100px;
+    background: white;
+}
+
+#red-box {
+    background: #cc0000;
+    width: 1000px;
+}
+
+.section-head {
+    text-align: center;
+}
+
+#summary-body {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#skills {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*************************************************************************** CRUD DETAILS *****************************************************************/
+#redbox-details {
+    background: #cc0000;
+    max-width: 62.5vw;
+}
+
+#white-banner-details {
+    height: 100vh;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background: white;
+}
+
+#form-margin-details {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#details-header {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}

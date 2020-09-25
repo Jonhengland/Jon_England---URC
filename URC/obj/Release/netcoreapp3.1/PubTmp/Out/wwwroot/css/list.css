@@ -1,0 +1,20 @@
+﻿body {
+}
+
+#redbox-list {
+    background: #cc0000;
+    max-width: 62.5vw;
+}
+
+#white-banner-list {
+    height: 100vh;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%
+}
+
+#list-header {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5%;
+}

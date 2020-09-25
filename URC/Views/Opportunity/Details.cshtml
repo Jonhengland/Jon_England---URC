@@ -1,0 +1,90 @@
+﻿<!--
+  Author:    Peter Forsling
+  Date:      24 September 2020
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Peter Forsling - This work may not be copied for use in Academic Coursework.
+
+  I, Peter Forsling, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    This file contains the HTML code to display the CRUD details page.
+-->
+
+@model URC.Models.Opportunity
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="redbox-details">
+    <div id="white-banner-details">
+        <h1 id="details-header">Opportunity Details: Admin</h1>
+
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProjectName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProjectName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProfessorName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProfessorName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProjectDescription)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProjectDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MentorName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MentorName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BeginDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BeginDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Pay)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Pay)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Filled)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Filled)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.OpportunityID">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+

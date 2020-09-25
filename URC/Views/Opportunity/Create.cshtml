@@ -1,0 +1,90 @@
+﻿<!--
+  Author:    Peter Forsling
+  Date:      24 September 2020
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and Peter Forsling - This work may not be copied for use in Academic Coursework.
+
+  I, Peter Forsling, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    This file contains the HTML code to display the CRUD create page.
+-->
+
+@model URC.Models.Opportunity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div id="redbox-create">
+    <div id="white-banner-create">
+        <h1 id="create-header">Create Opportunity: Admin</h1>
+
+        <hr />
+        <div class="row" id="form-margin-create">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProjectName" class="control-label"></label>
+                        <input asp-for="ProjectName" class="form-control" />
+                        <span asp-validation-for="ProjectName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProfessorName" class="control-label"></label>
+                        <input asp-for="ProfessorName" class="form-control" />
+                        <span asp-validation-for="ProfessorName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProjectDescription" class="control-label"></label>
+                        <input asp-for="ProjectDescription" class="form-control" />
+                        <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="Image" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MentorName" class="control-label"></label>
+                        <input asp-for="MentorName" class="form-control" />
+                        <span asp-validation-for="MentorName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BeginDate" class="control-label"></label>
+                        <input asp-for="BeginDate" class="form-control" />
+                        <span asp-validation-for="BeginDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Pay" class="control-label"></label>
+                        <input asp-for="Pay" class="form-control" />
+                        <span asp-validation-for="Pay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Filled" /> @Html.DisplayNameFor(model => model.Filled)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="List">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
