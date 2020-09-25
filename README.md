@@ -6,7 +6,7 @@ Course: CS 4540, University of Utah, School of Computing <br />
 Copyright: CS 4540, Peter Forsling - This work may not be copied for use inAcademic Coursework. <br />
 
 Deployed URL: https://ec2-52-204-143-178.compute-1.amazonaws.com <br />
-Github Page: https://github.com/uofu-cs4540-fall2020/urc-ps1-n-oah-p-eter-complete
+Github Page: https://github.com/uofu-cs4540-fall2020/ps4-urc-continued-pf_ps4 
 
 
 
