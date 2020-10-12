@@ -13,6 +13,12 @@
     This file contains the HTML code to display on every web page.
 -->
 
+@using Microsoft.AspNetCore.Identity
+@using URC.Areas.Identity.Data
+
+@inject SignInManager<URCUser> SignInManager
+@inject UserManager<URCUser> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +39,16 @@
     <link rel="stylesheet" href="~/css/create.css" />
     <link rel="stylesheet" href="~/css/edit.css" />
     <link rel="stylesheet" href="~/css/delete.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/RoleTable.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    @RenderSection("Scripts", required: false)
 
 </head>
 <body>
@@ -68,6 +84,9 @@
 
                 <!--Right side of NavBar-->
                 <ul class="navbar-nav ml-auto">
+                    <li>
+                        <partial name="_LoginPartial" />
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Peter Forsling <br />
@@ -77,6 +96,9 @@
                             <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Account">Manage Account</a>
                             <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
                         </div>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -100,9 +122,6 @@
     <footer class="container">
         <p>&copy; Company 2017-2020</p>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

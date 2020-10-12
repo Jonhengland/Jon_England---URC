@@ -107,6 +107,32 @@ namespace URC.Data
                     Filled=false,
                     Tags=new List<Tag>()
                 },
+                new Opportunity
+                {
+                    ProjectName = "generic research",
+                    ProfessorName = "professor",
+                    ProjectDescription = "research stuff",
+                    Image = "/Images/generic_cola.jpg",
+                    MentorName = "gene",
+                    BeginDate = new DateTime(2020, 10, 23, 0, 0, 0),
+                    EndDate = new DateTime(2020, 10, 24, 0, 0, 0),
+                    Pay = 7.50,
+                    Filled = false,
+                    Tags = new List<Tag>()
+                },
+                new Opportunity
+                {
+                ProjectName = "Parallelizing Convolutional Neural Network",
+                ProfessorName = "professor_mary",
+                ProjectDescription = "analyze the performance vs cost factor of parallelizing convolutional neural networks with OpenMP",
+                Image = "/Images/openmp.gif",
+                MentorName = "Marek Baranowski",
+                BeginDate = new DateTime(2019, 8, 21, 0, 0, 0),
+                EndDate = new DateTime(2019, 12, 3, 0, 0, 0),
+                Pay = 8.00,
+                Filled = true,
+                Tags = new List<Tag>()
+                }
             };
 
             context.Opportunities.AddRange(opportunities);

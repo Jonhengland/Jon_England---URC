@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using URC.Data;
@@ -48,7 +49,8 @@ namespace URC.Controllers
         }
 
 
-        // GET: Opportunity
+        // GET: Opportunities
+        [Authorize(Roles = "Administrator, Professor")]
         public async Task<IActionResult> List()
         {
             return View(await _context.Opportunities.ToListAsync());
@@ -117,6 +119,7 @@ namespace URC.Controllers
         }
 
         // GET: Opportunity/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -139,6 +142,7 @@ namespace URC.Controllers
         }
 
         // GET: Opportunity/Edit/5
+        [Authorize(Roles = "Administrator, Professor")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -151,6 +155,21 @@ namespace URC.Controllers
             {
                 return NotFound();
             }
+
+            // If a professor is trying to edit an opportunity,
+            // make sure that it is their own opportunity.
+            if (User.IsInRole("Professor"))
+            {
+                string professorName = User.Identity.Name;
+
+                // If the opportunity doesn't belong to the professor, deny access
+                if (opportunity.ProfessorName != professorName)
+                {
+                    return Unauthorized("hello");
+                }
+            }
+
+
             return View(opportunity);
         }
 
@@ -190,6 +209,7 @@ namespace URC.Controllers
         }
 
         // GET: Opportunity/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

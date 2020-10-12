@@ -17,10 +17,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using URC.Areas.Identity.Data;
 
 namespace URC
 {
@@ -45,9 +47,15 @@ namespace URC
 
                 try
                 {
-                    var context = services.GetRequiredService<Data.URCContext>();
+                    var urcContext = services.GetRequiredService<Data.URCContext>();
                     //context.Database.EnsureCreated();
-                    Data.DbInitializer.Initialize(context);
+                    Data.DbInitializer.Initialize(urcContext);
+
+                    var userManager = services.GetRequiredService<UserManager<URCUser>>();
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    var userRolesContext = services.GetRequiredService<Data.UserRolesDB>();
+                    Data.SeedUserRolesDB.Seed(userManager, roleManager);
+
                 }
                 catch (Exception ex)
                 {

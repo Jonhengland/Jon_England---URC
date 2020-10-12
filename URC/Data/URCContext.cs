@@ -34,17 +34,17 @@ namespace URC.Data
         /// <summary>
         /// Opportunities DB Entity Set
         /// </summary>
-        public DbSet<URC.Models.Opportunity> Opportunities { get; set; }
+        public DbSet<Opportunity> Opportunities { get; set; }
 
         /// <summary>
         /// RequiredSkills DB Entity Set
         /// </summary>
-        public DbSet<URC.Models.RequiredSkill> RequiredSkills { get; set; }
+        public DbSet<RequiredSkill> RequiredSkills { get; set; }
         
         /// <summary>
         /// Tags DB Entity Set
         /// </summary>
-        public DbSet<URC.Models.Tag> Tags { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
