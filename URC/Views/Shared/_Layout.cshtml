@@ -1,7 +1,7 @@
 ﻿<!--
   Author:    Peter Forsling
   Partner:   Noah Jackson
-  Date:      24 September 2020
+  Date:      12 October 2020
   Course:    CS 4540, University of Utah, School of Computing
   Copyright: CS 4540 and Peter Forsling/Noah Jackson - This work may not be copied for use in Academic Coursework.
 
@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="~/css/create.css" />
     <link rel="stylesheet" href="~/css/edit.css" />
     <link rel="stylesheet" href="~/css/delete.css" />
+    <link rel="stylesheet" href="~/css/RoleTable.css" />
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -65,9 +66,31 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="Index">Opportunities</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="Application">Application</a>
-                    </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
+                            </li>
+                        }
+                        else if (User.IsInRole("Professor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
+                            </li>
+                        }
+                        else //User is a student
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="Application">Application</a>
+                            </li>
+                        }
+                    }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             TA
@@ -76,8 +99,10 @@
                             <p class="dropdown-item">Peter Forsling</p>
                             <a class="dropdown-item" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
                             <a class="dropdown-item" asp-area="" asp-controller="Opportunity" asp-action="Index">Opportunities</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Handmade_Opportunities">Handmade Opportunities</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Handmade_Details">Handmade Details</a>
+                            <a class="dropdown-item" href="/Opportunity/OpportunityDetails/1">Opportunity Detail</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Application">Application</a>
+                            <a class="dropdown-item" href="/Opportunity/Edit/1">Edit Opportunity</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
                         </div>
                     </li>
                 </ul>
@@ -87,24 +112,7 @@
                     <li>
                         <partial name="_LoginPartial" />
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Peter Forsling <br />
-                            Student
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Account">Manage Account</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
-                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
     </header>
@@ -113,12 +121,6 @@
             @RenderBody()
         </main>
     </div>
-
-    @*<footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2020 - URC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>*@
     <footer class="container">
         <p>&copy; Company 2017-2020</p>
     </footer>

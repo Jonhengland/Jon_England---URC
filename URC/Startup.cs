@@ -1,6 +1,6 @@
 ﻿/*
 Author: Peter Forsling
-Date: 24 September 2020
+Date: 12 October 2020
 Course: CS 4540, University of Utah, School of Computing
 Copyright: CS 4540 and Peter Forsling - This work may not be copied for use in Academic Coursework.
 
@@ -26,6 +26,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using URC.Data;
 using URC.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using WebPWrecover.Services;
+using URC.Areas.Identity.Services;
 
 namespace URC
 {
@@ -61,6 +64,12 @@ namespace URC
                     options.UseSqlServer(Configuration.GetConnectionString("UserRolesDBConnection")));
             services.AddDefaultIdentity<URCUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>().AddEntityFrameworkStores<UserRolesDB>();
+
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

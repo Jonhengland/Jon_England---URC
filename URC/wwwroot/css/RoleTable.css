@@ -1,0 +1,13 @@
+﻿.redx {
+    color: red;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+}
+
+.greencheck {
+    color: green;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+}

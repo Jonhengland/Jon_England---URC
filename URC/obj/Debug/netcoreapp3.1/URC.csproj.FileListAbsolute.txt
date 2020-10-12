@@ -383,6 +383,9 @@ C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\RoleTable.cshtml.g.cs
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\bin\Debug\netcoreapp3.1\DataTables.AspNet.Core.dll
+C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\URC.csproj.CoreCompileInputs.cache
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\URC.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\URC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Peter\source\repos\ps4-urc-continued-pf_ps4\URC\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs

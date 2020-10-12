@@ -8,19 +8,19 @@ I, Peter Forsling, certify that I wrote this code from scratch and did not copy 
 another source. Any references used in the completion of the assignment are cited in my README file.
 
 File Contents
-This file contains the Identity User for the Identity Database
+This file contains the class that holds the sendgrid api information
 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
-namespace URC.Areas.Identity.Data
+namespace URC.Areas.Identity.Services
 {
-    // Add profile data for application users by adding properties to the URCUser class
-    public class URCUser : IdentityUser
+    public class AuthMessageSenderOptions
     {
+        public string SendGridUser { get; set; }
+        public string SendGridKey { get; set; }
     }
 }

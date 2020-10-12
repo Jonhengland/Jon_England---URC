@@ -1,3 +1,17 @@
+@*
+Author: Peter Forsling
+Date: 12 October 2020
+Course: CS 4540, University of Utah, School of Computing
+Copyright: CS 4540 and Peter Forsling - This work may not be copied for use in Academic Coursework.
+
+I, Peter Forsling, certify that I wrote this code from scratch and did not copy it in part or whole from
+another source. Any references used in the completion of the assignment are cited in my README file.
+
+File Contents
+This file contains the contents needed to make the Role Table for Administrative purposes
+*@
+
+
 @using Microsoft.AspNetCore.Identity;
 @using URC.Areas.Identity.Data;
 
@@ -9,12 +23,11 @@
 {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
     <script src="~/js/RoleTable.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2010.3.5/dist/sweetalert2.all.min.js"></script>
 
     <script>
+        // Updates the role in the database for the given user
         function changeRoles(user_name, user_id, oldRole, new_role, addRemove) {
             var data = { user_id: user_id, old_role: oldRole, role: new_role, add_remove: addRemove };
 
@@ -80,34 +93,37 @@
                             @user.UserName
                         </td>
                         <td>
+                            @*Are they an administrator?*@
                             @if (await userManager.IsInRoleAsync(user, "Administrator"))
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', @user.Id', '@oldRole', 'Administrator', 'remove')">Yes</p>
+                                <p class="greencheck" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Administrator', 'remove')">&#10003;</p>
                             }
                             else
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Administrator', 'add')">No</p>
+                                <p class="redx" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Administrator', 'add')">X</p>
                             }
                         </td>
                         <td>
+                            @*Are they a professor?*@
                             @if (await userManager.IsInRoleAsync(user, "Professor"))
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Professor', 'remove')">Yes</p>
+                                <p class="greencheck" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Professor', 'remove')">&#10003;</p>
                             }
                             else
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Professor', 'add')">No</p>
+                                <p class="redx" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Professor', 'add')">X</p>
                             }
 
                         </td>
                         <td>
+                            @*Are they a student?*@
                             @if (await userManager.IsInRoleAsync(user, "Student"))
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Student', 'remove')">Yes</p>
+                                <p class="greencheck" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Student', 'remove')">&#10003;</p>
                             }
                             else
                             {
-                                <p style="cursor: pointer" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Student', 'add')">No</p>
+                                <p class="redx" onclick="changeRoles('@user.UserName', '@user.Id', '@oldRole', 'Student', 'add')">X</p>
                             }
 
                         </td>
@@ -118,46 +134,3 @@
         </table>
     </div>
 </div>
-
-@*@section Scripts
-{
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
-    <script src="~/js/RoleTable.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2010.3.5/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-        function changeRoles(user_name, user_id, oldRole, new_role, addRemove) {
-            var data = { user_id: user_id, old_role: oldRole, role: new_role, add_remove: addRemove };
-
-            // Ask for confirmation to switch roles
-            Swal.fire({
-                title: 'Change ' + user_name + '\'s role from ' + oldRole + ' to ' + new_role + '?',
-                icon: 'question',
-                showCancelButton: true,
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Update Role'
-            }).then((result) => {
-
-                // If confirmed, update role
-                if (result.isConfirmed) {
-                    $.post("/Administrator/Post", data).done(function (result) { });
-
-                    // Successful update, refresh page
-                    Swal.fire({
-                        title: 'Success!',
-                        text: user_name + '\'s role has been updated.',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            location.reload(true);
-                        }
-                    })
-                }
-            })
-        }
-    </script>
-}*@
