@@ -8,15 +8,11 @@ namespace URC.Models
     public class Application
     {
 
-        public ICollection<StudentSkill> Skills { get; set; }
+        public string Email { get; set; }
 
         public string Resume { get; set; }
 
-        public ICollection<StudentInterest> Interests { get; set; }
-
         public DateTime ExpectedGradDate { get; set; }
-
-        public ICollection<CompletedCourse> CompletedCourses { get; set; }
 
         public string DegreePlan { get; set; }
 
@@ -31,5 +27,11 @@ namespace URC.Models
         public DateTime ApplicationDate { get; set; }
 
         public bool Active { get; set; }
+
+        public ICollection<StudentSkill> Skills { get; set; }
+
+        public ICollection<StudentInterest> Interests { get; set; }
+
+        public ICollection<CompletedCourse> CompletedCourses { get; set; }
     }
 }
