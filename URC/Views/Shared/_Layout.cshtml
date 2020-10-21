@@ -54,7 +54,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">URC</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
                 <!--Left side of NavBar-->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="Index">Opportunities</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Opportunity" asp-action="Index">Opportunities</a>
                     </li>
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -72,22 +72,22 @@
                         @if (User.IsInRole("Administrator"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Administrator" asp-action="RoleTable">Role Table</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
                             </li>
                         }
                         else if (User.IsInRole("Professor"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Opportunity" asp-action="List">Opportunity List</a>
                             </li>
                         }
                         else //User is a student
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="Application">Application</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Student" asp-action="Application">Application</a>
                             </li>
                         }
                     }

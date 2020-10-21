@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Peter\\source\\repos\\ps4-urc-continued-pf_ps4\\URC\\URC.csproj": {}
+    "C:\\Users\\Peter\\source\\repos\\ps-6---student-application-halfpast12\\URC\\URC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Peter\\source\\repos\\ps4-urc-continued-pf_ps4\\URC\\URC.csproj": {
+    "C:\\Users\\Peter\\source\\repos\\ps-6---student-application-halfpast12\\URC\\URC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peter\\source\\repos\\ps4-urc-continued-pf_ps4\\URC\\URC.csproj",
+        "projectUniqueName": "C:\\Users\\Peter\\source\\repos\\ps-6---student-application-halfpast12\\URC\\URC.csproj",
         "projectName": "URC",
-        "projectPath": "C:\\Users\\Peter\\source\\repos\\ps4-urc-continued-pf_ps4\\URC\\URC.csproj",
+        "projectPath": "C:\\Users\\Peter\\source\\repos\\ps-6---student-application-halfpast12\\URC\\URC.csproj",
         "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peter\\source\\repos\\ps4-urc-continued-pf_ps4\\URC\\obj\\",
+        "outputPath": "C:\\Users\\Peter\\source\\repos\\ps-6---student-application-halfpast12\\URC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
