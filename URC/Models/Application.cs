@@ -8,6 +8,8 @@ namespace URC.Models
     public class Application
     {
 
+        public int ID { get; set; }
+
         public string Email { get; set; }
 
         public string Resume { get; set; }

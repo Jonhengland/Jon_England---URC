@@ -26,7 +26,7 @@ namespace URC.Data
     /// </summary>
     public class URCContext : DbContext
     {
-        public URCContext (DbContextOptions<URCContext> options)
+        public URCContext(DbContextOptions<URCContext> options)
             : base(options)
         {
         }
@@ -40,17 +40,29 @@ namespace URC.Data
         /// RequiredSkills DB Entity Set
         /// </summary>
         public DbSet<RequiredSkill> RequiredSkills { get; set; }
-        
+
         /// <summary>
         /// Tags DB Entity Set
         /// </summary>
         public DbSet<Tag> Tags { get; set; }
+
+        public DbSet<Application> Applications { get; set; }
+
+        public DbSet<StudentInterest> StudentInterests {get; set;}
+
+        public DbSet<CompletedCourse> CompletedCourses { get; set; }
+
+        public DbSet<StudentSkill> StudentSkills { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Opportunity>().ToTable("Opportunity");
             modelBuilder.Entity<RequiredSkill>().ToTable("RequiredSkill");
             modelBuilder.Entity<Tag>().ToTable("Tag");
+            modelBuilder.Entity<Application>().ToTable("Application");
+            modelBuilder.Entity<StudentInterest>().ToTable("StudentInterest");
+            modelBuilder.Entity<CompletedCourse>().ToTable("CompletedCourse");
+            modelBuilder.Entity<StudentSkill>().ToTable("StudentSkill");
         }
     }
 }
