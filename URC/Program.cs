@@ -54,7 +54,7 @@ namespace URC
                     var userManager = services.GetRequiredService<UserManager<URCUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var userRolesContext = services.GetRequiredService<Data.UserRolesDB>();
-                    Data.SeedUserRolesDB.Seed(userManager, roleManager);
+                    Data.SeedUserRolesDB.Seed(userRolesContext, userManager, roleManager);
 
                 }
                 catch (Exception ex)

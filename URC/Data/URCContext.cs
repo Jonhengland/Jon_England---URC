@@ -48,7 +48,7 @@ namespace URC.Data
 
         public DbSet<Application> Applications { get; set; }
 
-        public DbSet<StudentInterest> StudentInterests {get; set;}
+        public DbSet<StudentInterest> StudentInterests { get; set; }
 
         public DbSet<CompletedCourse> CompletedCourses { get; set; }
 

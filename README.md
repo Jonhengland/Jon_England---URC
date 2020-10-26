@@ -1,12 +1,13 @@
 # PS5 - URC - Users and Roles 
 
-Authors: Peter Forsling u0960779<br />
-Date: October 12, 2020 <br />
+Authors: Jon England u0978321, Peter Forsling u0960779<br />
+Date: October 24, 2020 <br />
 Course: CS 4540, University of Utah, School of Computing <br />
-Copyright: CS 4540, Peter Forsling - This work may not be copied for use in Academic Coursework. <br />
+Copyright: CS 4540, Jon England & Peter Forsling - This work may not be copied for use in Academic Coursework. <br />
 
 Deployed URL: TBD<br />
-Github Page: https://github.com/uofu-cs4540-fall2020/ps4-urc-continued-pf_ps4 
+Github Page: https://github.com/uofu-cs4540-fall2020/ps-6---student-application-halfpast12  <br />
+URC API Documentation: https://web.postman.co/collections/13220390-b30cfe4c-fdb7-49ff-a7b3-a10394050da1?version=latest&workspace=65d752e8-f020-4f84-812a-72f8713174d9 <br />
 
 
 
@@ -46,6 +47,15 @@ When a role has been updated, the entire page refreshes to reflect the updated r
 <h4>Improvements</h4>
 N/A
 
+<h3>Assignment 6</h3>
+<h4>Data Validation</h4>
+Application GPA - It should never be less than 0 or greater than 4, we validate this with the Range meta tag. <br />
+Application HoursPerWeek - We decided that no student should work for more than 40 hours per week, so the Range meta tag limits this from 0 to 40. <br />
+Application PersonalStatement - The length of the personal statement should not exceed 500. This is validated with a MaxLength meta tag. <br />
+Application UID - The UID must match the regex meta tag. <br />
+Student/Apply - Activate/Deactivate are strings used to apply/withdraw a student's application. We verify that this string must equal Activate/Deactivate in the Controller. If it isn't valid, return a bad request. <br />
+
+
 
 ## Acknowledgements
 
@@ -70,10 +80,10 @@ https://stackoverflow.com/questions/29207161/asp-net-add-text-after-html-display
 https://alexcodetuts.com/2019/05/22/how-to-seed-users-and-roles-in-asp-net-core/ <br />
 
 <h4>Peers consulted with</h4>
-Jabrail Ahmed
-Calvin Dam
-Jon England
-Misha Griego
-Kaylee Martin
+Jabrail Ahmed <br />
+Calvin Dam <br />
+Ryan Furukawa <br />
+Misha Griego <br />
+Kaylee Martin <br />
 
 

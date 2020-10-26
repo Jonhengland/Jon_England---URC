@@ -83,7 +83,7 @@ This file contains the contents needed to make the Role Table for Administrative
                 </tr>
             </thead>
             <tbody>
-                @foreach (var user in userManager.Users)
+                @foreach (var user in userManager.Users.ToArray())
                 {
                     var roleList = userManager.GetRolesAsync(user);
                     var oldRole = roleList.Result.FirstOrDefault();

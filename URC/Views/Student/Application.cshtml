@@ -12,36 +12,127 @@
 
     This file contains the HTML code to display the application page.
 -->
+@using Microsoft.AspNetCore.Identity;
+@using URC.Areas.Identity.Data;
 
-<div id="redbox-application">
-    <div class="bg-white" id="white-banner-application">
-        <form>
-            <div class="form-group form-margin">
-                <label for="FirstNameInput">First Name</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="First Name">
-            </div>
-            <div class="form-group form-margin">
-                <label for="LastNameInput">Last Name</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Last Name">
-            </div>
-            <div class="form-group form-margin">
-                <label for="EmailInput">Email</label>
-                <input type="email" class="form-control" id="formGroupExampleInput" placeholder="someone@example.com">
-            </div>
-            <div class="form-group form-margin">
-                <label for="PhoneInput">Phone Number</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="XXX-XXX-XXXX"> <!--Cannot find an input type for phone number format. Maybe Javascript will fix this?-->
-            </div>
-            <div class="form-group form-margin">
-                <label for="ResumeFileInput">Resume</label>
-                <input type="file" class="form-control-file" id="resumeFileInput" accept="application/pdf">
-            </div>
-            <div class="form-group form-margin">
-                <label for="CoverLetterInput">Cover Letter (optional)</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-            </div>
-            <button type="submit" id="submit-button" class="btn btn-primary form-margin">Submit Application</button>
-        </form>
+@model IEnumerable<URC.Models.Application>
+@inject UserManager<URCUser> userManager
 
+
+<div id="redbox-list">
+    <div class="bg-white" id="white-banner-list">
+
+
+        @if (User.IsInRole("Student"))
+        {
+            <h1 id="list-header">Your Application</h1>
+        }
+        else if (User.IsInRole("Professor"))
+        {
+            <h1 id="list-header">Active Student Applications</h1>
+        }
+        else 
+        {
+            <h1 id="list-header">All Student Applications</h1>
+        }
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Application ID
+                    </th>
+                    <th>
+                        Last Updated
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Options
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td>
+                            No Application on File.
+                        </td>
+                        <td>
+                            Please create an application.
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <a asp-action="Create">Create New Application</a>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApplicationDate)
+                            </td>
+                            <td>
+                                @if (item.Active)
+                                {
+                                    <text>Active</text>
+                                }
+                                else
+                                {
+                                    <text>Inactive</text>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Active)
+                                {
+                                    @if (User.IsInRole("Student"))
+                                    {
+                                        <p>
+                                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                                        </p>
+                                    }
+
+                                }
+                                else
+                                {
+                                    @if (User.IsInRole("Student"))
+                                    {
+                                        <p>
+                                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                                        </p>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
 </div>

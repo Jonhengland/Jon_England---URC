@@ -42,9 +42,6 @@ namespace URC.Controllers
         [Authorize(Roles = "Administrator")]
         public IActionResult RoleTable()
         {
-            ViewData["um"] = userManager.Users.ToArray();
-            ViewData["rm"] = roleManager;
-
             return View();
         }
 

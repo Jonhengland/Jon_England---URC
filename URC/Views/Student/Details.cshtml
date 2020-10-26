@@ -1,0 +1,164 @@
+﻿@model URC.Models.Application
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div id="redbox-list">
+    <div class="bg-white" id="white-banner-list">
+        <h1>Details</h1>
+        <div>
+            <h4>Application</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Resume)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Resume)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ExpectedGradDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ExpectedGradDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DegreePlan)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DegreePlan)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GPA)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GPA)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UID)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UID)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HoursPerWeek)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HoursPerWeek)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PersonalStatement)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PersonalStatement)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ApplicationDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ApplicationDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Active)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Active)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @if (Model.Active)
+            {
+                <input type="button" onclick="ApplicationActivate('@Html.DisplayFor(model => model.Email)', 'deactivate')" value="Withdraw Application" /><text> | </text>
+            }
+            else
+            {
+                <input type="button" onclick="ApplicationActivate('@Html.DisplayFor(model => model.Email)', 'activate')" value="Apply" /><text> | </text>
+            }
+            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+            <a asp-action="Application">Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2010.3.5/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        // Updates the role in the database for the given user
+        function ApplicationActivate(user_email, activate_deactivate) {
+            var data = { user_email: user_email, activate_deactivate: activate_deactivate };
+
+            if (activate_deactivate == "activate") {
+                // Ask for confirmation to Acitvate/Deactivate
+                Swal.fire({
+                    title: 'Activate your application?',
+                    text: 'Professors will be able to see your application.',
+                    icon: 'question',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Activate'
+                }).then((result) => {
+
+                    // If confirmed, activate
+                    if (result.isConfirmed) {
+                        $.post("/Student/Apply", data).done(function (result) { });
+
+                        // Successful update, refresh page
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Your application is now active.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                        })
+                    }
+                })
+            }
+            else {
+                // Ask for confirmation to Acitvate/Deactivate
+                Swal.fire({
+                    title: 'Deactivate your application?',
+                    text: 'Professors will no longer be able to see your application.',
+                    icon: 'question',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Deactivate'
+                }).then((result) => {
+
+                    // If confirmed, activate
+                    if (result.isConfirmed) {
+                        $.post("/Student/Apply", data).done(function (result) { });
+
+                        // Successful update, refresh page
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Your application is now inactive.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                        })
+                    }
+                })
+            }
+        }
+    </script>
+}

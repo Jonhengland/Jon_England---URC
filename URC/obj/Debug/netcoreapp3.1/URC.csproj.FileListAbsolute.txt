@@ -596,3 +596,10 @@ C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\
 C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\URC.dll
 C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\URC.pdb
 C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\URC.genruntimeconfig.cache
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Create.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Delete.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Details.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Edit.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Index.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\API\Index.cshtml.g.cs
+C:\Users\Peter\source\repos\ps-6---student-application-halfpast12\URC\obj\Debug\netcoreapp3.1\Razor\Views\Student\Search.cshtml.g.cs

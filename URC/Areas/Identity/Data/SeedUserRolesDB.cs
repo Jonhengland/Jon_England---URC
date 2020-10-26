@@ -29,8 +29,10 @@ namespace URC.Data
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="roleManager"></param>
-        public static void Seed(UserManager<URCUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static void Seed(UserRolesDB context, UserManager<URCUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+
+            context.Database.EnsureCreated();
             //https://alexcodetuts.com/2019/05/22/how-to-seed-users-and-roles-in-asp-net-core/
 
             //Seed roles
@@ -197,6 +199,76 @@ namespace URC.Data
                     userManager.AddToRoleAsync(u0000000, "Student").Wait();
                 }
             }
+
+            if (userManager.FindByEmailAsync("test@utah.edu").Result == null)
+            {
+                URCUser test = new URCUser
+                {
+                    UserName = "test",
+                    Email = "test@utah.edu",
+                    EmailConfirmed = true
+                };
+
+                IdentityResult result = userManager.CreateAsync(test, "123ABC!@#def").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(test, "Student").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("u0000001@utah.edu").Result == null)
+            {
+                URCUser u0000001 = new URCUser
+                {
+                    UserName = "u0000001@utah.edu",
+                    Email = "u0000001@utah.edu",
+                    EmailConfirmed = true
+                };
+
+                IdentityResult result = userManager.CreateAsync(u0000001, "123ABC!@#def").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(u0000001, "Student").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("u0000002@utah.edu").Result == null)
+            {
+                URCUser u0000002 = new URCUser
+                {
+                    UserName = "u0000002@utah.edu",
+                    Email = "u0000002@utah.edu",
+                    EmailConfirmed = true
+                };
+
+                IdentityResult result = userManager.CreateAsync(u0000002, "123ABC!@#def").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(u0000002, "Student").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("u0000003@utah.edu").Result == null)
+            {
+                URCUser u0000003 = new URCUser
+                {
+                    UserName = "u0000003@utah.edu",
+                    Email = "u0000003@utah.edu",
+                    EmailConfirmed = true
+                };
+
+                IdentityResult result = userManager.CreateAsync(u0000003, "123ABC!@#def").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(u0000003, "Student").Wait();
+                }
+            }
+
+
 
         }
     }
