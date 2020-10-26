@@ -5,7 +5,7 @@ Date: October 24, 2020 <br />
 Course: CS 4540, University of Utah, School of Computing <br />
 Copyright: CS 4540, Jon England & Peter Forsling - This work may not be copied for use in Academic Coursework. <br />
 
-Deployed URL - Jon England: TBD <br />
+Deployed URL - Jon England: https://ec2-18-233-165-111.compute-1.amazonaws.com/ <br />
 Deployed URL - Peter Forsling: https://ec2-54-166-180-15.compute-1.amazonaws.com/<br />
 Github Page: https://github.com/uofu-cs4540-fall2020/ps-6---student-application-halfpast12  <br />
 URC API Documentation: https://web.postman.co/collections/13220390-b30cfe4c-fdb7-49ff-a7b3-a10394050da1?version=latest&workspace=65d752e8-f020-4f84-812a-72f8713174d9 <br />
